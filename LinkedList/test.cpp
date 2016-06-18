@@ -6,8 +6,9 @@
 
 #include <iostream>
 #include <random>
+#include <cassert>
 
-#include "LinkedList.h"
+#include "LinkedList.hpp"
 
 using namespace std;
 using G = mt19937_64; // mersenne twister engine for random numbers
@@ -22,22 +23,19 @@ int main()
 
     // We create the blank LinkedList a here.
     LinkedList<int> a;
-    cout << "Size: " << a.size() << endl; // Should print 0.
-    cout << a << endl; // Should print "Empty!"
-
-    cout << "Adding 10 random integers in range [10, 99] to a." << endl;
+    assert( a.size() == 0 );
     for(int i = 0; i < 10; i++)
-        a.push_front(d(g));
-
-    cout << a << endl;
-
-    cout << "We're going to keep popping from the back until a is empty." << endl;
-
-    while (!a.empty())
     {
-        cout << "Size: " << a.size() << ", List: " << a << endl;
-        a.pop_front();
+        assert( a.size() == i );
+        a.push_front(d(g));
     }
+
+    a.pop_back();
+    assert( a.size() == 9 );
+    a.push_front(120);
+    assert( a.front() == 120 );
+    a.push_back(500);
+    assert( a.back() == 500 );
 
     return 0;
 }
