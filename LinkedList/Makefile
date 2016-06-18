@@ -5,7 +5,7 @@ all:
 	make test
 
 test:
-	$(CPP) $(CPPFLAGS) main.cpp -o test.out
+	$(CPP) $(CPPFLAGS) test.cpp -o test.out
 
 clean:
 	(rm -f *.out)
