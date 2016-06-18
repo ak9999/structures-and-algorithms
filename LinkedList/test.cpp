@@ -24,18 +24,28 @@ int main()
     // We create the blank LinkedList a here.
     LinkedList<int> a;
     assert( a.size() == 0 );
-    for(int i = 0; i < 10; i++)
+    a.push_back(23);
+    assert( a.size() == 1 && a.back() == 23 );
+    for(size_t i = 0; i < 10; i++)
     {
-        assert( a.size() == i );
+        assert( a.size() == i + 1 );
         a.push_front(d(g));
     }
 
     a.pop_back();
-    assert( a.size() == 9 );
+    assert( a.size() == 10 );
     a.push_front(120);
-    assert( a.front() == 120 );
+    assert( (a.front() == 120) && (a.size() == 11) );
     a.push_back(500);
-    assert( a.back() == 500 );
+    assert( (a.back() == 500) && (a.size() == 12) );
+
+    while(!a.empty())
+    {
+        assert( a.size() > 0 );
+        a.pop_back();
+    }
+
+    assert( a.size() == 0 );
 
     return 0;
 }
