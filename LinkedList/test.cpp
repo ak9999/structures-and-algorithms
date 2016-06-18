@@ -25,19 +25,25 @@ int main()
     LinkedList<int> a;
     assert( a.size() == 0 );
     a.push_back(23);
-    assert( a.size() == 1 && a.back() == 23 );
+    assert( a.size() == 1 );
     for(size_t i = 0; i < 10; i++)
     {
         assert( a.size() == i + 1 );
         a.push_front(d(g));
     }
 
+    for(size_t i = 0; i < 10; i++)
+    {
+        assert( a.size() == i + 11 );
+        a.push_back(d(g));
+    }
+
     a.pop_back();
-    assert( a.size() == 10 );
+    assert( a.size() == 20 );
     a.push_front(120);
-    assert( (a.front() == 120) && (a.size() == 11) );
+    assert( a.size() == 21 );
     a.push_back(500);
-    assert( (a.back() == 500) && (a.size() == 12) );
+    assert( a.size() == 22 );
 
     while(!a.empty())
     {
@@ -46,6 +52,13 @@ int main()
     }
 
     assert( a.size() == 0 );
+
+    a.pop_back();
+    assert( a.size() == 0 );
+
+    a.push_back(999);
+    assert( a.search(999) != nullptr );
+    assert( a.search(1000) == nullptr );
 
     return 0;
 }
