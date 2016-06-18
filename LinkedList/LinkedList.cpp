@@ -129,16 +129,17 @@ template<typename T>
 void LinkedList<T>::push_back(const T& x)
 {
     Node* temp = new Node(x, nullptr);
-    Node* curr = root;
-    while (curr != nullptr)
+    if (!root) { root = std::move(temp); }
+    else
     {
-        if (curr->next == nullptr)
+        Node* curr = root;
+        while(curr->next != nullptr)
         {
-            curr->next = temp;
-            size_++;
+            curr = curr->next;
         }
-        curr = curr->next;
+        curr->next = std::move(temp);
     }
+    size_++;
 }
 
 template<typename T>
