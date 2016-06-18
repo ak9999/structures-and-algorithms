@@ -3,8 +3,8 @@
  * @File: LinkedList.h
  */
 
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef LINKEDLIST_HPP
+#define LINKEDLIST_HPP
 
 #include <stdexcept>
 #include <iostream>
@@ -51,4 +51,4 @@ public:
 };
 
 #include "LinkedList.cpp"
-#endif //LINKEDLIST_H
+#endif //LINKEDLIST_HPP

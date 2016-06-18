@@ -5,7 +5,7 @@
 
 #include <utility>
 
-#include "LinkedList.h"
+#include "LinkedList.hpp"
 
 template<typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
