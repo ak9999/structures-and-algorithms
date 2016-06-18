@@ -26,7 +26,7 @@ class LinkedList
     };
 
     Node* root;
-    unsigned int size_ = 0;
+    size_t size_ = 0;
     void Clear();
 
     template<typename U>
