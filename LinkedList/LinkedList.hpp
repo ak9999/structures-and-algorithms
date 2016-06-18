@@ -34,11 +34,12 @@ public:
     // Operations
     size_t size() const;
     bool empty() const;
-    void pop_front();
-    void pop_back();
+    bool pop_front();
+    bool pop_back();
     void push_front(const T&);
     void push_back(const T&);
     Node* search(const T&);
+    Node* GetRoot() const;
 };
 
 #include "LinkedList.cpp"

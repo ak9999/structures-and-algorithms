@@ -43,7 +43,7 @@ typename LinkedList<T>::Node* LinkedList<T>::search(const T& x)
 }
 
 template <typename T>
-void LinkedList<T>::pop_front()
+bool LinkedList<T>::pop_front()
 {
     if (!empty())
     {
@@ -51,12 +51,13 @@ void LinkedList<T>::pop_front()
         root = root->next;
         delete temp;
         size_--;
+        return true;
     }
-    else { return; }
+    else { return false; }
 }
 
 template <typename T>
-void LinkedList<T>::pop_back()
+bool LinkedList<T>::pop_back()
 {
     if (!empty())
     {
@@ -74,12 +75,13 @@ void LinkedList<T>::pop_back()
                 }
                 else { delete curr; }
                 size_--;
+                return true;
             }
             prev = curr;
             curr = curr->next;
         }
     }
-    else { return; }
+    return false;
 }
 
 template <typename T>
@@ -114,20 +116,4 @@ void LinkedList<T>::push_back(const T& x)
         curr->next = std::move(temp);
     }
     size_++;
-}
-
-template <typename T>
-std::ostream& operator<<(std::ostream& out, const LinkedList<T>& list)
-{
-    if (list.empty()) { out << "Empty!"; }
-    else
-    {
-        typename LinkedList<T>::Node* curr = list.GetRoot();
-        while (curr != nullptr)
-        {
-            out << curr->data << " ";
-            curr = curr->next;
-        }
-    }
-    return out;
 }

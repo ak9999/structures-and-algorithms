@@ -59,6 +59,6 @@ int main()
     a.push_back(999);
     assert( a.search(999) != nullptr );
     assert( a.search(1000) == nullptr );
-
+    
     return 0;
 }
