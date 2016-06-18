@@ -5,75 +5,44 @@
 
 #include "LinkedList.hpp"
 
-template<typename T>
+template <typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
-// template<typename T>
-// LinkedList<T>::LinkedList(const LinkedList<T>& rhs) : root{rhs.GetRoot()}, size_{rhs.size()} {}
-//
-// template<typename T>
-// LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& rhs)
-// {
-//     std::swap(*this, rhs);
-//     return *this;
-// }
-
-template<typename T>
+template <typename T>
 LinkedList<T>::~LinkedList()
 {
     Clear();
 }
 
-template<typename T>
-unsigned int LinkedList<T>::size() const
+template <typename T>
+size_t LinkedList<T>::size() const
 {
     return size_;
 }
 
-template<typename T>
+template <typename T>
 bool LinkedList<T>::empty() const
 {
     return (root == nullptr) && (size_ == 0);
 }
 
-template<typename T>
-typename LinkedList<T>::Node* LinkedList<T>::GetRoot() const
-{
-    return root;
-}
-
-template<typename T>
+template <typename T>
 void LinkedList<T>::Clear()
 {
     while(!empty())
         pop_front();
 }
 
-template<typename T>
-T& LinkedList<T>::front() const
+template <typename T>
+typename LinkedList<T>::Node* LinkedList<T>::search(const T& x)
 {
-    if (!empty())
-        return root->data;
-    else { throw LinkedList_Error("List empty."); }
+    Node* temp = root;
+    while (temp != nullptr && temp->data != x)
+        temp = temp->next;
+    return temp;
 }
 
-template<typename T>
-T& LinkedList<T>::back() const
-{
-    if (!empty())
-    {
-        Node* curr = root;
-        while (curr != nullptr)
-        {
-            if (curr->next == nullptr)
-                return curr->data;
-            curr = curr->next;
-        }
-    }
-    else { throw LinkedList_Error("List empty."); }
-}
-
-template<typename T>
+template <typename T>
 void LinkedList<T>::pop_front()
 {
     if (!empty())
@@ -83,10 +52,10 @@ void LinkedList<T>::pop_front()
         delete temp;
         size_--;
     }
-    else { throw LinkedList_Error("List empty."); }
+    else { return; }
 }
 
-template<typename T>
+template <typename T>
 void LinkedList<T>::pop_back()
 {
     if (!empty())
@@ -110,10 +79,10 @@ void LinkedList<T>::pop_back()
             curr = curr->next;
         }
     }
-    else { throw LinkedList_Error("List empty."); }
+    else { return; }
 }
 
-template<typename T>
+template <typename T>
 void LinkedList<T>::push_front(const T& x)
 {
     if (!empty())
@@ -130,7 +99,7 @@ void LinkedList<T>::push_front(const T& x)
     }
 }
 
-template<typename T>
+template <typename T>
 void LinkedList<T>::push_back(const T& x)
 {
     Node* temp = new Node(x, nullptr);
@@ -147,7 +116,7 @@ void LinkedList<T>::push_back(const T& x)
     size_++;
 }
 
-template<typename T>
+template <typename T>
 std::ostream& operator<<(std::ostream& out, const LinkedList<T>& list)
 {
     if (list.empty()) { out << "Empty!"; }
