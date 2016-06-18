@@ -10,15 +10,15 @@
 template<typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
-template<typename T>
-LinkedList<T>::LinkedList(const LinkedList<T>& rhs) : root{rhs.GetRoot()}, size_{rhs.size()} {}
-
-template<typename T>
-LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& rhs)
-{
-    std::swap(*this, rhs);
-    return *this;
-}
+// template<typename T>
+// LinkedList<T>::LinkedList(const LinkedList<T>& rhs) : root{rhs.GetRoot()}, size_{rhs.size()} {}
+//
+// template<typename T>
+// LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& rhs)
+// {
+//     std::swap(*this, rhs);
+//     return *this;
+// }
 
 template<typename T>
 LinkedList<T>::~LinkedList()
@@ -35,7 +35,7 @@ unsigned int LinkedList<T>::size() const
 template<typename T>
 bool LinkedList<T>::empty() const
 {
-    return root == nullptr;
+    return (root == nullptr) && (size_ == 0);
 }
 
 template<typename T>
@@ -83,6 +83,7 @@ void LinkedList<T>::pop_front()
         Node* temp = root;
         root = root->next;
         delete temp;
+        size_--;
     }
     else { throw LinkedList_Error("List empty."); }
 }
@@ -100,6 +101,7 @@ void LinkedList<T>::pop_back()
             {
                 prev->next = nullptr;
                 delete curr;
+                size_--;
             }
             prev = curr;
             curr = curr->next;
