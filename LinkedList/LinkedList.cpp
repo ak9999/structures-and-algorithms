@@ -3,8 +3,6 @@
  * @File: LinkedList.cpp
  */
 
-#include <utility>
-
 #include "LinkedList.hpp"
 
 template<typename T>
