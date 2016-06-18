@@ -100,7 +100,12 @@ void LinkedList<T>::pop_back()
             if (curr->next == nullptr)
             {
                 prev->next = nullptr;
-                delete curr;
+                if (prev == curr)
+                {
+                    delete curr;
+                    root = nullptr;
+                }
+                else { delete curr; }
                 size_--;
             }
             prev = curr;
