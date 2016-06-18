@@ -25,20 +25,19 @@ int main()
     cout << "Size: " << a.size() << endl; // Should print 0.
     cout << a << endl; // Should print "Empty!"
 
-    // We are pushing 10 random numbers to the front of the LinkedList.
+    cout << "Adding 10 random integers in range [10, 99] to a." << endl;
     for(int i = 0; i < 10; i++)
         a.push_front(d(g));
 
-    cout << "Size: " << a.size() << endl;
-    cout << "Front: " << a.front() << endl;
-    cout << "Back: " << a.back() << endl;
-
-    cout << "Printing entire list." << endl;
     cout << a << endl;
 
-    a.push_back(2);
-    cout << "Pushed integer 2 to list a." << endl;
-    cout << a << endl;
+    cout << "We're going to keep popping from the back until a is empty." << endl;
+
+    while (!a.empty())
+    {
+        cout << "Size: " << a.size() << ", List: " << a << endl;
+        a.pop_front();
+    }
 
     return 0;
 }
