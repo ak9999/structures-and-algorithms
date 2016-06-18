@@ -28,15 +28,15 @@ class LinkedList
     Node* root;
     unsigned int size_ = 0;
     void Clear();
-    
+
     template<typename U>
     friend std::ostream& operator<<(std::ostream&, const LinkedList<U>&);
 
 public:
     LinkedList();
-    LinkedList(const LinkedList&);
+    LinkedList(const LinkedList&) = delete;
     ~LinkedList();
-    LinkedList& operator=(const LinkedList&);
+    LinkedList& operator=(const LinkedList&) = delete;
 
     // Operations
     Node* GetRoot() const;
