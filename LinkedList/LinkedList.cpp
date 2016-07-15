@@ -117,3 +117,23 @@ void LinkedList<T>::push_back(const T& x)
     }
     size_++;
 }
+
+template <typename T>
+void LinkedList<T>::print()
+{
+    if(empty()) { std::cout << "[]" << std::endl; }
+    else
+    {
+        Node* curr = root;
+        std::cout << "[ ";
+        while(curr != nullptr)
+        {
+            std::cout << "\'" << curr->data;
+            if(curr->next != nullptr)
+                std::cout << "\', ";
+            else { std::cout << "\' "; }
+            curr = curr->next;
+        }
+        std::cout << "]" << std::endl;
+    }
+}

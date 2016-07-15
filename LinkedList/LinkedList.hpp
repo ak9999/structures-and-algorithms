@@ -40,6 +40,8 @@ public:
     void push_back(const T&);
     Node* search(const T&);
     Node* GetRoot() const;
+
+    void print();
 };
 
 #include "LinkedList.cpp"
