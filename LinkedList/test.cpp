@@ -11,7 +11,7 @@
 #include "LinkedList.hpp"
 
 using namespace std;
-using G = mt19937_64; // mersenne twister engine for random numbers
+using G = mt19937; // mersenne twister engine for random numbers
 using D = uniform_int_distribution<>; // inclusive distribution range
 
 int main()
@@ -31,6 +31,8 @@ int main()
         assert( a.size() == i + 1 );
         a.push_front(d(g));
     }
+
+    a.print();
 
     for(size_t i = 0; i < 10; i++)
     {
@@ -60,5 +62,9 @@ int main()
     assert( a.search(999) != nullptr );
     assert( a.search(1000) == nullptr );
     
+    a.print();
+
+    a.pop_back();
+    a.print();
     return 0;
 }
