@@ -69,6 +69,6 @@ int main()
     a.print();
 
     LinkedList<string> b{ "yes", "no", "maybe" };
-    b.print();
+    cout << b;
     return 0;
 }
