@@ -7,6 +7,7 @@
 #include <iostream>
 #include <random>
 #include <cassert>
+#include <string>
 
 #include "LinkedList.hpp"
 
@@ -66,5 +67,8 @@ int main()
 
     a.pop_back();
     a.print();
+
+    LinkedList<string> b{ "yes", "no", "maybe" };
+    b.print();
     return 0;
 }
