@@ -9,6 +9,14 @@ template <typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
 template <typename T>
+LinkedList<T>::LinkedList(std::initializer_list<T> lst) : root{nullptr}
+{
+    for (auto i = lst.begin(); i != lst.end(); ++i)
+        this->push_back(*i);
+    this->size_ = lst.size();
+}
+
+template <typename T>
 LinkedList<T>::~LinkedList()
 {
     Clear();

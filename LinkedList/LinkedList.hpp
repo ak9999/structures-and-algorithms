@@ -7,6 +7,7 @@
 #define LINKEDLIST_HPP
 
 #include <ostream>
+#include <initializer_list>
 
 template<typename T>
 class LinkedList
@@ -27,8 +28,9 @@ class LinkedList
 
 public:
     LinkedList();
-    LinkedList(const LinkedList&) = delete;
+    LinkedList(std::initializer_list<T> lst); // initializer-list ctor.
     ~LinkedList();
+    LinkedList(const LinkedList&) = delete;
     LinkedList& operator=(const LinkedList&) = delete;
 
     // Operations
