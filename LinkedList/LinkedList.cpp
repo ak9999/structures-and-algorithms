@@ -129,12 +129,12 @@ void LinkedList<T>::push_back(const T& x)
 template <typename T>
 void LinkedList<T>::print()
 {
-    if(empty()) { std::cout << "[]" << std::endl; }
+    if (empty()) { std::cout << "[]" << std::endl; }
     else
     {
         Node* curr = root;
         std::cout << "[ ";
-        while(curr != nullptr)
+        while (curr != nullptr)
         {
             std::cout << "\'" << curr->data;
             if(curr->next != nullptr)
@@ -144,4 +144,25 @@ void LinkedList<T>::print()
         }
         std::cout << "]" << std::endl;
     }
+}
+
+template <typename U>
+std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
+{
+    if(l.empty()) { os << "[]"; }
+    else
+    {
+        typename LinkedList<U>::Node* curr = l.root;
+        os << "[ ";
+        while (curr != nullptr)
+        {
+            os << "\'" << curr->data;
+            if(curr->next != nullptr)
+                os << "\', ";
+            else { os << "\' "; }
+            curr = curr->next;
+        }
+        os << "]" << std::endl;
+    }
+    return os;
 }

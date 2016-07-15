@@ -7,7 +7,6 @@
 #define LINKEDLIST_HPP
 
 #include <ostream>
-#include <initializer_list>
 
 template<typename T>
 class LinkedList
@@ -23,15 +22,16 @@ class LinkedList
     size_t size_ = 0;
     void Clear();
 
-    template<typename U>
-    friend std::ostream& operator<<(std::ostream&, const LinkedList<U>&);
-
 public:
     LinkedList();
     LinkedList(std::initializer_list<T> lst); // initializer-list ctor.
     ~LinkedList();
     LinkedList(const LinkedList&) = delete;
     LinkedList& operator=(const LinkedList&) = delete;
+
+    // Overload stream operator
+    template <typename U>
+    friend std::ostream& operator<<(std::ostream&, const LinkedList<U>& l);
 
     // Operations
     size_t size() const;
