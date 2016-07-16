@@ -1,6 +1,7 @@
 /*
  * @Author: Abdullah Khan
- * @File: LinkedList.h
+ * @File: LinkedList.hpp
+ * @Description: Part of my notes.
  */
 
 #ifndef LINKEDLIST_HPP
