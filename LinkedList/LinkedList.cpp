@@ -142,13 +142,13 @@ void LinkedList<T>::print()
     else
     {
         Node* curr = root;
-        std::cout << "[ ";
+        std::cout << "[";
         while (curr != nullptr)
         {
             std::cout << "\'" << curr->data;
             if(curr->next != nullptr)
                 std::cout << "\', ";
-            else { std::cout << "\' "; }
+            else { std::cout << "\'"; }
             curr = curr->next;
         }
         std::cout << "]" << std::endl;
@@ -165,13 +165,13 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
         // So you must include the "typename" so the compiler knows what
         // to look for.
         typename LinkedList<U>::Node* curr = l.root;
-        os << "[ ";
+        os << "[";
         while (curr != nullptr)
         {
             os << "\'" << curr->data;
             if(curr->next != nullptr)
                 os << "\', ";
-            else { os << "\' "; }
+            else { os << "\'"; }
             curr = curr->next;
         }
         os << "]" << std::endl;
