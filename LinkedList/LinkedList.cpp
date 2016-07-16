@@ -41,6 +41,7 @@ void LinkedList<T>::Clear()
         pop_front();
 }
 
+// Finds the first instance of x in the LinkedList.
 template <typename T>
 typename LinkedList<T>::Node* LinkedList<T>::search(const T& x)
 {
@@ -152,6 +153,9 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
     if(l.empty()) { os << "[]"; }
     else
     {
+        // This function is not part of LinkedList, it is just a friend.
+        // So you must include the "typename" so the compiler knows what
+        // to look for.
         typename LinkedList<U>::Node* curr = l.root;
         os << "[ ";
         while (curr != nullptr)
