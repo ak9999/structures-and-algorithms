@@ -5,14 +5,22 @@
 
 #include "LinkedList.hpp"
 
+// Non-member functions std::rbegin and std::rend
+// are defined in <iterator>.
+#include <iterator>
+
 template <typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
 template <typename T>
 LinkedList<T>::LinkedList(std::initializer_list<T> lst) : root{nullptr}
 {
-    for (auto i = lst.begin(); i != lst.end(); ++i)
-        this->push_back(*i);
+	/* push_front is cheaper than push_back.
+	 * So reverse the {}-list and call push_front, LinkedList will have the same
+	 * order, and will be filled faster.
+	 */
+    for (auto i = std::rbegin(lst); i != std::rend(lst); ++i)
+        this->push_front(*i);
     this->size_ = lst.size();
 }
 
