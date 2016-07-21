@@ -36,4 +36,5 @@ int main()
 	cout << "Printing out as we pop." << endl;
 	while (!a.empty())
 		cout << a.pop() << endl;
+	return 0;
 }
