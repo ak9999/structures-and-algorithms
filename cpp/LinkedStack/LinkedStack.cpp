@@ -51,17 +51,17 @@ void LinkedStack<T>::Clear()
 }
 
 template <typename T>
-T LinkedStack<T>::pop()
+bool LinkedStack<T>::pop()
 {
 	if (!empty())
 	{
 		Node* temp = root;
 		root = root->next;
-		T ret = temp->data;
 		delete temp;
 		size_--;
-		return ret;
+		return true; // Successfully deleted element from stack.
 	}
+	else { return false; }
 }
 
 template <typename T>
@@ -81,11 +81,6 @@ void LinkedStack<T>::push(const T& x)
 	}
 }
 
+// Calling code should check if empty first.
 template <typename T>
-T LinkedStack<T>::top()
-{
-	if (!empty())
-	{
-		return this->root->data;
-	}
-}
+T LinkedStack<T>::top() { return this->root->data; }

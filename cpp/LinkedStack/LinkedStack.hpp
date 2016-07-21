@@ -41,7 +41,7 @@ public:
 	// Public Operations
 	size_t size() const;
 	bool empty() const;
-	T pop(); // Pop an element from the top of the stack and return it.
+	bool pop(); // Pop an element from the top of the stack and return it.
 	void push(const T&);
 	T top(); // Return what is at the top of the stack.
 };
