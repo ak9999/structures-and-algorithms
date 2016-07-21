@@ -38,14 +38,6 @@ public:
 	// This tells the compiler not to generate an implicit copy-assignment.
 	LinkedStack& operator=(const LinkedStack&) = delete;
 
-	// Overload stream operator
-	/*
-	 * This needs to have a different template of a different typename.
-	 * It is a friend function, so it must be defined outside of the class.
-	 */
-	template <typename U>
-	friend std::ostream& operator<<(std::ostream&, const LinkedStack<U>& l);
-
 	// Public Operations
 	size_t size() const;
 	bool empty() const;
