@@ -1,7 +1,7 @@
 /*
  * @Author: Abdullah Khan
  * @File: main.cpp
- * @Description: Test LinkedList.
+ * @Description: Test LinkedStack.
  */
 
 #include <iostream>
