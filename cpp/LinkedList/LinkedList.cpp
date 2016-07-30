@@ -13,6 +13,25 @@ template <typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
 template <typename T>
+LinkedList<T>::LinkedList(const LinkedList& rhs) : root{nullptr}, size_{0}
+{
+	Node* temp = rhs.root;
+	while (temp != nullptr)
+	{
+		push_back(temp->data);
+		temp = temp->next;
+	}
+}
+
+template <typename T>
+LinkedList<T>& LinkedList<T>::operator=(const LinkedList& rhs) // copy-assignment ctor
+{
+	LinkedList copy = rhs;
+	std::swap(*this, copy);
+	return *this;
+}
+
+template <typename T>
 LinkedList<T>::LinkedList(std::initializer_list<T> lst) : root{nullptr}
 {
 	/* push_front is cheaper than push_back.

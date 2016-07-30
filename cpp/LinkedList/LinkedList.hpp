@@ -36,9 +36,9 @@ public:
 	~LinkedList(); // default destructor
 
 	// This tells the compiler not to generate an implicit copy-constructor.
-	LinkedList(const LinkedList&) = delete;
+	LinkedList(const LinkedList&);
 	// This tells the compiler not to generate an implicit copy-assignment.
-	LinkedList& operator=(const LinkedList&) = delete;
+	LinkedList& operator=(const LinkedList&);
 
 	// Overload stream operator
 	/*
