@@ -34,11 +34,10 @@ public:
 	LinkedList(); // default constructor
 	LinkedList(std::initializer_list<T> lst); // initializer-list ctor.
 	~LinkedList(); // default destructor
-
-	// This tells the compiler not to generate an implicit copy-constructor.
-	LinkedList(const LinkedList&);
-	// This tells the compiler not to generate an implicit copy-assignment.
-	LinkedList& operator=(const LinkedList&);
+	LinkedList(const LinkedList&); // Copy-constructor
+	LinkedList& operator=(const LinkedList&); // Copy-assignment operator
+	LinkedList(LinkedList&&); // Move constructor.
+	LinkedList& operator=(LinkedList&&); // Move-assignment operator
 
 	// Overload stream operator
 	/*
