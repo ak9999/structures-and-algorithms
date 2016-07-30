@@ -21,7 +21,7 @@ LinkedList<T>::LinkedList(const LinkedList& rhs) : root{nullptr}, size_{0}
 		push_back(temp->data);
 		temp = temp->next;
 	}
-}
+} // copy constructor
 
 template <typename T>
 LinkedList<T>& LinkedList<T>::operator=(const LinkedList& rhs) // copy-assignment ctor
@@ -29,7 +29,7 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList& rhs) // copy-assignmen
 	LinkedList copy = rhs;
 	std::swap(*this, copy);
 	return *this;
-}
+} // copy-assignment operator
 
 template <typename T>
 LinkedList<T>::LinkedList(std::initializer_list<T> lst) : root{nullptr}
@@ -42,6 +42,26 @@ LinkedList<T>::LinkedList(std::initializer_list<T> lst) : root{nullptr}
 		this->push_front(*i);
 	this->size_ = lst.size();
 }
+
+template <typename T>
+LinkedList<T>::LinkedList(LinkedList&& rhs) : root{nullptr}, size_{0}
+{
+	*this = std::move(rhs);
+} // move constructor
+
+template <typename T>
+LinkedList<T>& LinkedList<T>::operator=(LinkedList&& rhs)
+{
+	if (this != &rhs)
+	{
+		delete root; // Free the existing memory.
+		root = rhs.root;
+		size_ = rhs.size_;
+		rhs.root = nullptr;
+		rhs.size_ = 0;
+	}
+	return *this;
+} // move-assignment operator
 
 template <typename T>
 LinkedList<T>::~LinkedList()
@@ -177,7 +197,7 @@ void LinkedList<T>::print()
 template <typename U>
 std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
 {
-	if(l.empty()) { os << "[]"; }
+	if(l.empty()) { os << "[]" << std::endl; }
 	else
 	{
 		// This function is not part of LinkedList, it is just a friend.
