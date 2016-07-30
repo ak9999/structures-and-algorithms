@@ -72,9 +72,26 @@ int main()
 	cout << b; // operator<< was overloaded for LinkedList.
 
 	// Both of these LinkedLists are created by the initialization-list ctor.
+	cout << "Initialization-list constructor." << endl;
 	LinkedList<float> c{.3, 3.14159, .69};
 	cout << c;
 	LinkedList<char> clist = {'a', 'b', 'c'};
 	cout << clist;
-	return 0;
+
+	cout << "Copy constructor." << endl;
+	LinkedList<float> f(c);
+	assert( c.size() == f.size() );
+	cout << f;
+
+	cout << "Copy-assignment operator." << endl;
+	LinkedList<char> e = clist;
+	assert( clist.size() == e.size() );
+	cout << e;
+
+	LinkedList<float> movef(std::move(f));
+	assert( movef.size() != f.size() );
+
+	cout << "Move-assignment operator." << endl;
+	LinkedList<char> ecopy = std::move(e);
+	assert( ecopy.size() != e.size() );
 }
