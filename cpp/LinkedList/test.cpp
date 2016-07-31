@@ -76,6 +76,10 @@ int main()
 	LinkedList<float> c{.3, 3.14159, .69};
 	cout << c;
 	c.insert(2000.16, 1); // Insert 2000.16 into the 2nd position.
+	cout << c;
+	cout << c.remove(5) << endl;
+	cout << c.remove(2) << endl;
+	cout << c;
 	LinkedList<char> clist = {'a', 'b', 'c'};
 	cout << clist;
 

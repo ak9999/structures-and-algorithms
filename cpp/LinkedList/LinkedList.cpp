@@ -143,7 +143,7 @@ bool LinkedList<T>::pop_back()
 					delete curr;
 					root = nullptr;
 				}
-				else { delete curr; }
+				else { delete curr;}
 				size_--;
 				return true;
 			}
@@ -217,6 +217,29 @@ bool LinkedList<T>::insert(const T& x, unsigned idx)
 }
 
 template <typename T>
+bool LinkedList<T>::remove(unsigned idx)
+{
+	if ((idx >= 0) && (idx <= size_))
+	{
+		if (idx == 0)
+			pop_front();
+		else if (idx == size_)
+			pop_back();
+		else
+		{
+			Node* prev = GetNodeAt(idx - 1);
+			Node* curr = prev->next;
+			prev->next = curr->next;
+			curr->next = nullptr;
+			delete curr;
+			size_--;
+			return true;
+		}
+	}
+	return false;
+}
+
+template <typename T>
 void LinkedList<T>::print()
 {
 	if (empty()) { std::cout << "[]" << std::endl; }
@@ -233,6 +256,7 @@ void LinkedList<T>::print()
 			curr = curr->next;
 		}
 		std::cout << "]" << std::endl;
+		delete curr;
 	}
 }
 
@@ -256,6 +280,7 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
 			curr = curr->next;
 		}
 		os << "]" << std::endl;
+		delete curr;
 	}
 	return os;
 }

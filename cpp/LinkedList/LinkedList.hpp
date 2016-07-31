@@ -55,6 +55,7 @@ public:
 	bool pop_front();
 	bool pop_back();
 	bool insert(const T&, unsigned);
+	bool remove(unsigned);
 	void push_front(const T&);
 	void push_back(const T&);
 	Node* search(const T&);
