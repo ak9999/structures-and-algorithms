@@ -75,6 +75,7 @@ int main()
 	cout << "Initialization-list constructor." << endl;
 	LinkedList<float> c{.3, 3.14159, .69};
 	cout << c;
+	c.insert(2000.16, 1); // Insert 2000.16 into the 2nd position.
 	LinkedList<char> clist = {'a', 'b', 'c'};
 	cout << clist;
 
