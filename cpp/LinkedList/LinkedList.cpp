@@ -9,6 +9,8 @@
 // are defined in <iterator>.
 #include <iterator>
 
+// Constructors
+
 template <typename T>
 LinkedList<T>::LinkedList() : root{nullptr}, size_{0} {}
 
@@ -64,10 +66,29 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList&& rhs)
 } // move-assignment operator
 
 template <typename T>
+void LinkedList<T>::Clear()
+{
+	while(!empty())
+		pop_front();
+}
+
+template <typename T>
 LinkedList<T>::~LinkedList()
 {
 	Clear();
 }
+
+template <typename T>
+typename LinkedList<T>::Node* LinkedList<T>::GetNodeAt(int idx)
+{
+	Node* curr = root;
+	for (auto i = 0; i < idx; i++)
+		curr = curr->next;
+	return curr;
+}
+
+
+// Public functions
 
 template <typename T>
 size_t LinkedList<T>::size() const
@@ -79,13 +100,6 @@ template <typename T>
 bool LinkedList<T>::empty() const
 {
 	return (root == nullptr) && (size_ == 0);
-}
-
-template <typename T>
-void LinkedList<T>::Clear()
-{
-	while(!empty())
-		pop_front();
 }
 
 // Finds the first instance of x in the LinkedList.
@@ -172,6 +186,34 @@ void LinkedList<T>::push_back(const T& x)
 		curr->next = std::move(temp);
 	}
 	size_++;
+}
+
+template <typename T>
+bool LinkedList<T>::insert(const T& x, unsigned idx)
+{
+	if ((idx >= 0) && (idx <= size_ + 1))
+	{
+		if (idx == 0)
+		{
+			push_front(x);
+			return true;
+		}
+		else if (idx == size_ + 1)
+		{
+			push_back(x);
+			return true;
+		}
+		else
+		{
+			Node* entry = new Node(x, nullptr);
+			Node* prev = GetNodeAt(idx - 1);
+			entry->next = prev->next;
+			prev->next = entry;
+			size_++;
+			return true;
+		}
+	}
+	return false; // We couldn't insert.
 }
 
 template <typename T>

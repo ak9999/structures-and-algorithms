@@ -30,6 +30,8 @@ class LinkedList
 	size_t size_ = 0;
 	void Clear();
 
+	Node* GetNodeAt(int idx);
+
 public:
 	LinkedList(); // default constructor
 	LinkedList(std::initializer_list<T> lst); // initializer-list ctor.
@@ -52,6 +54,7 @@ public:
 	bool empty() const;
 	bool pop_front();
 	bool pop_back();
+	bool insert(const T&, unsigned);
 	void push_front(const T&);
 	void push_back(const T&);
 	Node* search(const T&);
