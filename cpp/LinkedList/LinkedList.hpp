@@ -21,7 +21,7 @@ class LinkedList
 	 */
 	struct Node
 	{
-		Node(const T& x, Node* y) : data(x), next(y) {}
+		Node(const T& x = T{}, Node* y = nullptr) : data{x}, next{y} {}
 		T data;
 		Node* next;
 	};
