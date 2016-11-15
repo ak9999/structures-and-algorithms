@@ -34,7 +34,7 @@ class LinkedList
 public:
 	LinkedList(); // default constructor
 	LinkedList(std::initializer_list<T> lst); // initializer-list ctor.
-	~LinkedList() = default; // default destructor
+	~LinkedList() = default; // Compiler can generate it's own destructor.
 
 	// This tells the compiler not to generate an implicit copy-constructor.
 	LinkedList(const LinkedList&) = delete;
