@@ -33,22 +33,22 @@ void randomize(Iterator begin, Iterator end) {
 // Sort basic containers of any type.
 template<typename Iterator>
 void selection_sort(Iterator begin, Iterator end) {
-	// for (auto it = begin; it != end; ++it) {
-	// 	// Using std::min_element during an interview might be cheating.
-	// 	auto minimum_element_iterator = min_element(it, end);
-	// 	std::swap(*minimum_element_iterator, *it);
-	// }
-	for (auto i = begin; i != end; ++i) {
-		auto minimum_element_iterator = i;
-		for (auto j = begin++; j != end; ++j) {
-			if (*j < *minimum_element_iterator) {
-				minimum_element_iterator = j;
-			}
-		}
-		if (*minimum_element_iterator != *i) {
-			std::swap(*minimum_element_iterator, *i);
-		}
+	for (auto it = begin; it != end; ++it) {
+		// Using std::min_element during an interview might be cheating.
+		auto minimum_element_iterator = std::min_element(it, end);
+		std::swap(*minimum_element_iterator, *it);
 	}
+	// for (auto i = begin; i != end; ++i) {
+	// 	auto minimum_element_iterator = i;
+	// 	for (auto j = begin++; j != end; ++j) {
+	// 		if (*j < *minimum_element_iterator) {
+	// 			minimum_element_iterator = j;
+	// 		}
+	// 	}
+	// 	if (*minimum_element_iterator != *i) {
+	// 		std::swap(*minimum_element_iterator, *i);
+	// 	}
+	// }
 }
 
 // Print the contents of any single-value container.
