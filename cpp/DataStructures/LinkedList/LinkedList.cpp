@@ -7,7 +7,7 @@
 
 // Non-member functions std::rbegin and std::rend
 // are defined in <iterator>.
-#include <iterator>
+#include <initializer_list>
 
 // Constructors
 
