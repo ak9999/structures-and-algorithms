@@ -13,7 +13,7 @@
 #include <utility>
 #include <iostream>
 
-	namespace helper {
+namespace helper {
 
 using Generator = std::mt19937; // mersenne_twister_engine for random numbers
 using Distribution = std::uniform_int_distribution<>; // Inclusive distribution range.
