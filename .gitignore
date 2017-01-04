@@ -1,0 +1,10 @@
+# Executables
+*.exe
+*.app
+*.out
+
+# Objects
+*.o
+
+# Text
+*.txt
