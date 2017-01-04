@@ -1,5 +1,6 @@
 // Abdullah Khan
-// My attempt to implement std::array
+// File: Array.hpp
+// My attempt to implement a memory-safe static array.
 
 #pragma once
 
@@ -9,7 +10,7 @@
 template <typename T, size_t N>
 class Array {
 private:
-    size_t size_;
+    const size_t size_ = N;
     std::unique_ptr<T[]> array_ = std::make_unique<T[]>(N);
 public:
     Array(); // Default c-tor
@@ -23,7 +24,7 @@ public:
     T const& operator[] (size_t) const; // const version
 
     // Public operations.
-    size_t size() const; // Return size.
+    int size() const; // Return size.
     T* data(); // Return underlying array.
 };
 

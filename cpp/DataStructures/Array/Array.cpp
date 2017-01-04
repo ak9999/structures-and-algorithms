@@ -4,10 +4,7 @@
 #include "Array.hpp"
 
 template <typename T, size_t N>
-Array<T, N>::Array()
-    : array_{std::make_unique<T[]>(N)}
-    , size_{N}
-{}
+Array<T, N>::Array() {}
 
 template <typename T, size_t N>
 Array<T, N>::~Array() { }
@@ -23,11 +20,11 @@ T const& Array<T, N>::operator[] (size_t index) const {
 }
 
 template <typename T, size_t N>
-size_t Array<T, N>::size() const {
+int Array<T, N>::size() const {
     return size_;
 }
 
 template <typename T, size_t N>
 T* Array<T, N>::data() {
-    return array_;
+    return array_.get();
 }
