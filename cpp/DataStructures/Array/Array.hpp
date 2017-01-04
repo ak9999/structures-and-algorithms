@@ -15,7 +15,7 @@ public:
     Array(); // Default c-tor
     Array(const Array&) = delete; // No copy-constructor.
     Array(Array&&) = delete; // No move-constructor.
-    Array(std::initializer_list<T> lst); // Initializer-list constructor.
+    // Array(std::initializer_list<T> lst); // Initializer-list constructor.
     ~Array(); // Destructor.
 
     // Public accessors.
@@ -24,6 +24,7 @@ public:
 
     // Public operations.
     size_t size() const; // Return size.
+    T* data(); // Return underlying array.
 };
 
 #include "Array.cpp"

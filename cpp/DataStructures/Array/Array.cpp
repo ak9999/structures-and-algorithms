@@ -10,14 +10,6 @@ Array<T, N>::Array()
 {}
 
 template <typename T, size_t N>
-Array<T, N>::Array(std::initializer_list<T> lst) {
-    for (auto i : lst) {
-        array_[i] = i;
-    }
-    size_ = lst.size();
-}
-
-template <typename T, size_t N>
 Array<T, N>::~Array() { }
 
 template <typename T, size_t N>
@@ -33,4 +25,9 @@ T const& Array<T, N>::operator[] (size_t index) const {
 template <typename T, size_t N>
 size_t Array<T, N>::size() const {
     return size_;
+}
+
+template <typename T, size_t N>
+T* Array<T, N>::data() {
+    return array_;
 }
