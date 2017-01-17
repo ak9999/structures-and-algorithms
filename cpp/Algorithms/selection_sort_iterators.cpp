@@ -17,7 +17,7 @@ int main(int argc, char ** argv)
 	algorithm::selection_sort(v);
 	cout << "Sorted vector.\n";
 	helper::print_container(v);
-	
+
 	array<int, 5> a = {}; // Initializes all elements to 0.
 	cout << "\nRandomizing array.\n";
 	helper::randomize(a);
