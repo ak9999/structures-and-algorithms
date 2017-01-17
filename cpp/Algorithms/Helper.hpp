@@ -59,4 +59,27 @@ namespace algorithm {
 		// 	}
 		// }
 	}
+
+	// Binary search on containers. Look into std::optional
+	template <typename Container, typename T>
+	T binary_search(Container& c, T key)
+	{
+		int low = 0;
+		int high = c.size() - 1;
+
+		while (low <= high) {
+			int middle = (low + high) / 2;
+			int middle_value = c[middle];
+
+			if (middle_value < key) {
+				low = middle + 1;
+			} else if (middle_value > key) {
+				high = middle - 1;
+			} else {
+				return middle; // Key found
+			}
+		}
+
+		return -1 * (low + 1); // Key not found.
+	}
 } // namespace algorithm
