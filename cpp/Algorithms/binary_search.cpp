@@ -2,6 +2,7 @@
 #include <random>
 #include <iostream>
 #include "Helper.hpp"
+#include "Algorithms.hpp"
 using namespace helper;
 using namespace algorithm;
 
