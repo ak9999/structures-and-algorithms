@@ -5,7 +5,6 @@
 #pragma once
 
 #include <memory>
-#include <initializer_list>
 
 template <typename T, size_t N>
 class Array {
@@ -16,7 +15,6 @@ public:
     Array(); // Default c-tor
     Array(const Array&) = delete; // No copy-constructor.
     Array(Array&&) = delete; // No move-constructor.
-    // Array(std::initializer_list<T> lst); // Initializer-list constructor.
     ~Array(); // Destructor.
 
     // Public accessors.
@@ -26,6 +24,16 @@ public:
     // Public operations.
     int size() const; // Return size.
     T* data(); // Return underlying array.
+
+    // Iterators
+    using iterator = T*;
+    using const_iterator = const T*;
+    iterator begin() { return &array_.get()[0]; }
+    iterator begin() const { return &array_.get()[0]; }
+    iterator end() { return &array_.get()[size_]; }
+    iterator end() const { return &array_.get()[size_]; }
+    // const_iterator cbegin() const { return &array_.get()[0]; }
+    // const_iterator cend() const { return &array_.get()[size_]; }
 };
 
 #include "Array.cpp"
