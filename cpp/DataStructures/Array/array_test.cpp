@@ -2,14 +2,13 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
-#include <typeinfo>
 using std::cout;
 
 // Print the contents of a container.
 template<typename Container>
 void print_container(const Container& c) {
 	for (const auto &i : c) { std::cout << i << ' '; }
-		std::cout << '\n';
+	std::cout << '\n';
 }
 
 using Generator = std::mt19937; // mersenne_twister_engine for random numbers
@@ -28,20 +27,19 @@ void randomize(Container& c) {
 }
 
 int main() {
-    Array<int, 3> array;
-    array[0] = 1; array[1] = 2; array[2] = 3;
-    print_container(array);
-    cout << "is_sorted: " << std::boolalpha
-         << std::is_sorted(array.begin(), array.end()) << '\n';
-    randomize(array);
-    print_container(array);
-    cout << "is_sorted: " << std::boolalpha
-         << std::is_sorted(array.begin(), array.end()) << '\n';
-    randomize(array);
-    
-    // Using Array::cbegin() and Array::cend()
-    for(auto itr = array.cbegin(); itr != array.cend(); ++itr) {
-        cout << *itr << ' ';
-    }
-    cout << '\n';
+	Array<int, 3> array{1, 2, 3};
+	print_container(array);
+	cout << "is_sorted: " << std::boolalpha
+		 << std::is_sorted(array.begin(), array.end()) << '\n';
+	randomize(array);
+	print_container(array);
+	cout << "is_sorted: " << std::boolalpha
+		 << std::is_sorted(array.begin(), array.end()) << '\n';
+	randomize(array);
+	
+	// Using Array::cbegin() and Array::cend()
+	for(auto itr = array.cbegin(); itr != array.cend(); ++itr) {
+		cout << *itr << ' ';
+	}
+	cout << '\n';
 }
