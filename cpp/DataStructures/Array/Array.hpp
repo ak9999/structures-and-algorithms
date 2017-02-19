@@ -5,6 +5,7 @@
 #pragma once
 
 #include <memory>
+#include <initializer_list>
 
 template <typename T, size_t N>
 class Array {
@@ -15,7 +16,8 @@ public:
     Array(); // Default c-tor
     Array(const Array&) = delete; // No copy-constructor.
     Array(Array&&) = delete; // No move-constructor.
-    ~Array(); // Destructor.
+	Array(std::initializer_list<T>); // initializer_list constructor
+    ~Array() = default; // Destructor.
 
     // Public accessors.
     T& operator[] (size_t); // Accessor operator? I don't know what it's called.
