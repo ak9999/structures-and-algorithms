@@ -5,5 +5,5 @@ The array is implemented using a `std::unique_ptr<T[]>`, this way I don't have
 to implement a destructor.
 
 Features I'd like to add:
+* [x] Iterators
 * [ ] Construction from initialization list.
-* [ ] Iterators
