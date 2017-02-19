@@ -6,4 +6,6 @@ to implement a destructor.
 
 Features I'd like to add:
 * [x] Iterators
-* [ ] Construction from initialization list.
+* [x] Construction from initialization list.
+
+No real testing has been done yet, but this class works with some functions in `<algorithm>`.
