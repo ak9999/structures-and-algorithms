@@ -27,13 +27,14 @@ public:
 
     // Iterators
     using iterator = T*;
-    using const_iterator = const T*;
     iterator begin() { return &array_.get()[0]; }
-    iterator begin() const { return &array_.get()[0]; }
     iterator end() { return &array_.get()[size_]; }
-    iterator end() const { return &array_.get()[size_]; }
-    // const_iterator cbegin() const { return &array_.get()[0]; }
-    // const_iterator cend() const { return &array_.get()[size_]; }
+
+    using const_iterator = const T*;
+    const_iterator begin() const { return &array_.get()[0]; }
+    const_iterator end() const { return &array_.get()[size_]; }
+    const_iterator cbegin() const { return begin(); }
+    const_iterator cend() const { return end(); }
 };
 
 #include "Array.cpp"
