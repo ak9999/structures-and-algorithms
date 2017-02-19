@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <typeinfo>
 using std::cout;
 
 // Print the contents of a container.
@@ -36,4 +37,11 @@ int main() {
     print_container(array);
     cout << "is_sorted: " << std::boolalpha
          << std::is_sorted(array.begin(), array.end()) << '\n';
+    randomize(array);
+    
+    // Using Array::cbegin() and Array::cend()
+    for(auto itr = array.cbegin(); itr != array.cend(); ++itr) {
+        cout << *itr << ' ';
+    }
+    cout << '\n';
 }
