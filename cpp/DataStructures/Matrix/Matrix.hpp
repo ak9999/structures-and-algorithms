@@ -2,6 +2,8 @@
 // File: Matrix.hpp
 // N-dimensional Matrix class, following the example in Ch. 29 of TC++PL.
 
+#pragma once // Only include once
+
 #include <vector>
 
 template <typename T, size_t N>
