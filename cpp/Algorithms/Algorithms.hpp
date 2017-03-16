@@ -89,4 +89,22 @@ namespace algorithm {
 			return quick_select(c, pivot_index + 1, right, k);
 		}
 	}
+
+	// QuickSort
+	// TODO: Add comments.
+	template <typename Container>
+	void quick_sort(Container& c, size_t left, size_t right) {
+		if (left == right) {
+			return;
+		}
+		if (left < right) {
+			size_t pivot_index = ((right - left) >> 1) + left;
+			pivot_index = partition(c, left, right, pivot_index);
+			quick_sort(c, left, pivot_index);
+			quick_sort(c, pivot_index+1, right);
+			return;
+		} else {
+			return;
+		}
+	}
 } // namespace algorithm
