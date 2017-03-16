@@ -33,7 +33,9 @@ void randomize(Container& c) {
 // Print the contents of any single-value container.
 template<typename Container>
 void print_container(const Container& c) {
-	for (const auto i : c) { std::cout << i << ' '; }
-		std::cout << '\n';
+	for (const auto i : c) {
+		std::cout << i << ' ';
+	}
+	std::cout << '\n';
 }
 } // namespace helper
