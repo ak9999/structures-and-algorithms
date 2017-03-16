@@ -4,17 +4,15 @@
  * @Description: Algorithms
  */
 
-#pragma once
+#pragma once // Similar to include guards.
 
-// Includes
-#include <algorithm>
 #include <utility>
-#include <iostream>
 
 namespace algorithm {
 	// Sort basic containers of any type.
 	template<typename Container>
 	void selection_sort(Container& c) {
+		// If we include <algorithm> we can use the following instead:
 		// for (auto it = c.begin(); it != c.end(); ++it) {
 		// // Using std::min_element during an interview might be cheating.
 		// 	auto minimum_element_iterator = std::min_element(it, c.end());
