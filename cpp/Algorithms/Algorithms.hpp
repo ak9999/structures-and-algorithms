@@ -57,12 +57,14 @@ namespace algorithm {
 		return -1; // Key not found.
 	}
 
+	// TODO: Add more comments.
+	// Returns an index to an element in a container.
 	template <typename Container>
-	int partition(Container& c, int left, int right, int pivot_index) {
+	size_t partition(Container& c, size_t left, size_t right, size_t pivot_index) {
 		auto pivot = c[pivot_index]; // Get a pivot
 		std::swap(c[pivot_index], c[right]); // Move it to the end.
-		int store_index = left;
-		for (int i = left; i < right; ++i) {
+		size_t store_index = left;
+		for (size_t i = left; i < right; ++i) {
 			if (c[i] < pivot) {
 				std::swap(c[store_index], c[i]);
 				++store_index;
@@ -72,13 +74,14 @@ namespace algorithm {
 		return store_index;
 	}
 
-	template <typename Container>
 	// Returns the k-th smallest element.
-	auto quick_select(Container &c, int left, int right, int k) {
+	// TODO: Add more comments.
+	template <typename Container>
+	auto quick_select(Container &c, size_t left, size_t right, size_t k) {
 		if (left == right) { // Only one element.
 			return c[left];
 		}
-		int pivot_index = ((right - left) >> 1) + left;
+		size_t pivot_index = ((right - left) >> 1) + left;
 		pivot_index = partition(c, left, right, pivot_index);
 		if (k == pivot_index) {
 			return c[k];
