@@ -15,22 +15,22 @@ namespace algorithm {
 	// Sort basic containers of any type.
 	template<typename Container>
 	void selection_sort(Container& c) {
-		for (auto it = c.begin(); it != c.end(); ++it) {
-		// Using std::min_element during an interview might be cheating.
-			auto minimum_element_iterator = std::min_element(it, c.end());
-			std::swap(*minimum_element_iterator, *it);
-		}
-		// for (auto i = begin; i != end; ++i) {
-		// 	auto minimum_element_iterator = i;
-		// 	for (auto j = begin++; j != end; ++j) {
-		// 		if (*j < *minimum_element_iterator) {
-		// 			minimum_element_iterator = j;
-		// 		}
-		// 	}
-		// 	if (*minimum_element_iterator != *i) {
-		// 		std::swap(*minimum_element_iterator, *i);
-		// 	}
+		// for (auto it = c.begin(); it != c.end(); ++it) {
+		// // Using std::min_element during an interview might be cheating.
+		// 	auto minimum_element_iterator = std::min_element(it, c.end());
+		// 	std::swap(*minimum_element_iterator, *it);
 		// }
+		for (auto i = c.begin(); i != c.end(); ++i) {
+			auto minimum_element_iterator = i;
+			for (auto j = i+1; j != c.end(); ++j) {
+				if (*j < *minimum_element_iterator) {
+					minimum_element_iterator = j;
+				}
+			}
+			if (*minimum_element_iterator != *i) {
+				std::swap(*minimum_element_iterator, *i);
+			}
+		}
 	}
 
 	// Binary search on containers. Look into std::optional
