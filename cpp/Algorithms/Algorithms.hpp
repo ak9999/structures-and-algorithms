@@ -33,17 +33,19 @@ namespace algorithm {
 		}
 	}
 
-	// Binary search on containers. Look into std::optional
+	// Binary search on containers.
+	// Returns the index of the element found.
+	// Otherwise returns -1.
 	template <typename Container, typename T>
-	T binary_search(Container& c, T key)
-	{
+	int binary_search(Container& c, T key) {
 		int low = 0;
 		int high = c.size() - 1;
-
 		while (low <= high) {
 			int middle = (low + high) / 2;
-			int middle_value = c[middle];
-
+			// Can't use T for middle_value's type because if the key passed to binary_search
+			// is an r-value expression, the compiler may not interpret it as type T.
+			// Ex: key = "ball" can be an std::string or a char array.
+			auto middle_value = c[middle];
 			if (middle_value < key) {
 				low = middle + 1;
 			} else if (middle_value > key) {
@@ -52,13 +54,11 @@ namespace algorithm {
 				return middle; // Key found
 			}
 		}
-
-		return -1 * (low + 1); // Key not found.
+		return -1; // Key not found.
 	}
 
 	template <typename Container>
-	int partition(Container& c, int left, int right, int pivot_index)
-	{
+	int partition(Container& c, int left, int right, int pivot_index) {
 		auto pivot = c[pivot_index]; // Get a pivot
 		std::swap(c[pivot_index], c[right]); // Move it to the end.
 		int store_index = left;
