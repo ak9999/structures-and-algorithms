@@ -35,7 +35,7 @@ namespace algorithm {
 	// Returns the index of the element found.
 	// Otherwise returns -1.
 	template <typename Container, typename T>
-	int binary_search(Container& c, T key) {
+	int binary_search(const Container& c, const T& key) {
 		int low = 0;
 		int high = c.size() - 1;
 		while (low <= high) {
