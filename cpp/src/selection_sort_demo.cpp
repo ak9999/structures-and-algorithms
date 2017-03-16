@@ -3,8 +3,8 @@
 #include <array>
 
 // Include helper
-#include "Helper.hpp"
-#include "Algorithms.hpp"
+#include <Helper.hpp>
+#include <Algorithms.hpp>
 
 // namespaces
 using namespace std;
