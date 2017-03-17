@@ -54,10 +54,10 @@ public:
 	void clear();
 
 	// Iterator functions
-	iterator begin() { return &array_.get()[0]; }
-	iterator end() { return &array_.get()[size_]; }
-	const_iterator begin() const { return &array_.get()[0]; }
-	const_iterator end() const { return &array_.get()[size_]; }
+	iterator begin() { return &array.get()[0]; }
+	iterator end() { return &array.get()[vector_size]; }
+	const_iterator begin() const { return &array.get()[0]; }
+	const_iterator end() const { return &array.get()[vector_size]; }
 	const_iterator cbegin() const { return begin(); }
 	const_iterator cend() const { return end(); }
 private:
