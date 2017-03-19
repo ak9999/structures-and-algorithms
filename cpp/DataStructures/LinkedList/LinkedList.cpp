@@ -284,3 +284,24 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<U>& l)
 	}
 	return os;
 }
+
+
+template <typename T>
+T LinkedList<T>::get_max() const {
+	if (empty()) {
+		throw std::logic_error{"List empty!"};
+	}
+	return get_max(this->root, this->root->data);
+}
+
+template <typename T>
+T LinkedList<T>::get_max(const Node* node, T max) const {
+	if (node == nullptr) {
+		return max;
+	} else {
+		if (node->data > max) {
+			max = node->data;
+		}
+	}
+	return get_max(node->next, max);
+}
