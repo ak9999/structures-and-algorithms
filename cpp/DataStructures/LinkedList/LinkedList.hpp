@@ -12,6 +12,7 @@
 template<typename T>
 class LinkedList
 {
+private:
 	/*
 	 * Node is private to LinkedList, but since it is a struct,
 	 * its members are publically accessible by default to LinkedList.
@@ -31,6 +32,8 @@ class LinkedList
 	void Clear();
 
 	Node* GetNodeAt(int idx);
+
+	T get_max(const Node*, T) const;
 
 public:
 	LinkedList(); // default constructor
@@ -60,6 +63,9 @@ public:
 	void push_back(const T&);
 	Node* search(const T&);
 	void print();
+
+	// Get maximum element
+	T get_max() const;
 };
 
 /*
