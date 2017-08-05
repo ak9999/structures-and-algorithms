@@ -15,8 +15,12 @@ LIBS = -L/usr/lib -L/usr/local/lib
 binary_search_obj = binary_search.o
 k-th_smallest_element_obj = k-th_smallest_element.o
 selection_sort_demo_obj = selection_sort_demo.o
+bst_demo_obj = bst_demo.o
 
-all: binary_search k-th_smallest_element selection_sort_demo
+all: binary_search k-th_smallest_element selection_sort_demo bst_demo
+
+bst_demo: $(bst_demo_obj)
+	$(CPP) $(CPPFLAGS) -o $(EXECUTABLE_DIR)/$@ $(bst_demo_obj) $(INCLUDES) $(LIBS)
 
 binary_search: $(binary_search_obj)
 	$(CPP) $(CPPFLAGS) -o $(EXECUTABLE_DIR)/$@ $(binary_search_obj) $(INCLUDES) \
@@ -32,6 +36,7 @@ selection_sort_demo: $(selection_sort_demo_obj)
 
 clean:
 	(rm -f *.o)
+	(rm -f bst_demo)
 	(rm -f binary_search)
 	(rm -f k-th_smallest_element)
 	(rm -f selection_sort_demo)
